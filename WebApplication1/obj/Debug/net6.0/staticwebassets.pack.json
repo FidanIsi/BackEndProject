@@ -1,0 +1,277 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\WebApplication1.bundle.scp.css",
+      "PackagePath": "staticwebassets\\WebApplication1.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\admin\\assets\\css\\login.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\css\\login.css"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\admin\\assets\\css\\maps\\style.css.map",
+      "PackagePath": "staticwebassets\\admin\\assets\\css\\maps\\style.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\admin\\assets\\css\\style.css",
+      "PackagePath": "staticwebassets\\admin\\assets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\admin\\assets\\img\\profilephoto.jpg",
+      "PackagePath": "staticwebassets\\admin\\assets\\img\\profilephoto.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\admin\\assets\\js\\login.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\js\\login.js"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\css\\animate.css",
+      "PackagePath": "staticwebassets\\css\\animate.css"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\css\\classy-nav.min.css",
+      "PackagePath": "staticwebassets\\css\\classy-nav.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\css\\core-style.css",
+      "PackagePath": "staticwebassets\\css\\core-style.css"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\css\\core-style.css.map",
+      "PackagePath": "staticwebassets\\css\\core-style.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\css\\font-awesome.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\css\\jquery-ui.min.css",
+      "PackagePath": "staticwebassets\\css\\jquery-ui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\css\\magnific-popup.css",
+      "PackagePath": "staticwebassets\\css\\magnific-popup.css"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\css\\nice-select.css",
+      "PackagePath": "staticwebassets\\css\\nice-select.css"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\css\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\css\\owl.carousel.css"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\fonts\\FontAwesome.otf",
+      "PackagePath": "staticwebassets\\fonts\\FontAwesome.otf"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\fonts\\fontawesome-webfont.eot",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.eot"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\fonts\\fontawesome-webfont.svg",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.svg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\fonts\\fontawesome-webfont.ttf",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\fonts\\fontawesome-webfont.woff",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.woff"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\fonts\\fontawesome-webfont.woff2",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\fonts\\helvetica_neu_bold-webfont.ttf",
+      "PackagePath": "staticwebassets\\fonts\\helvetica_neu_bold-webfont.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\fonts\\helvetica_neu_bold-webfont.woff",
+      "PackagePath": "staticwebassets\\fonts\\helvetica_neu_bold-webfont.woff"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\fonts\\helvetica_neu_bold-webfont.woff2",
+      "PackagePath": "staticwebassets\\fonts\\helvetica_neu_bold-webfont.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\fonts\\helveticaneue_medium-webfont.ttf",
+      "PackagePath": "staticwebassets\\fonts\\helveticaneue_medium-webfont.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\fonts\\helveticaneue_medium-webfont.woff",
+      "PackagePath": "staticwebassets\\fonts\\helveticaneue_medium-webfont.woff"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\fonts\\helveticaneue_medium-webfont.woff2",
+      "PackagePath": "staticwebassets\\fonts\\helveticaneue_medium-webfont.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\bg-img\\1.jpg",
+      "PackagePath": "staticwebassets\\img\\bg-img\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\bg-img\\2.jpg",
+      "PackagePath": "staticwebassets\\img\\bg-img\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\bg-img\\3.jpg",
+      "PackagePath": "staticwebassets\\img\\bg-img\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\bg-img\\4.jpg",
+      "PackagePath": "staticwebassets\\img\\bg-img\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\bg-img\\5.jpg",
+      "PackagePath": "staticwebassets\\img\\bg-img\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\bg-img\\6.jpg",
+      "PackagePath": "staticwebassets\\img\\bg-img\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\bg-img\\7.jpg",
+      "PackagePath": "staticwebassets\\img\\bg-img\\7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\bg-img\\8.jpg",
+      "PackagePath": "staticwebassets\\img\\bg-img\\8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\bg-img\\9.jpg",
+      "PackagePath": "staticwebassets\\img\\bg-img\\9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\bg-img\\cart1.jpg",
+      "PackagePath": "staticwebassets\\img\\bg-img\\cart1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\bg-img\\cart2.jpg",
+      "PackagePath": "staticwebassets\\img\\bg-img\\cart2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\bg-img\\cart3.jpg",
+      "PackagePath": "staticwebassets\\img\\bg-img\\cart3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\core-img\\cart.png",
+      "PackagePath": "staticwebassets\\img\\core-img\\cart.png"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\core-img\\favicon.ico",
+      "PackagePath": "staticwebassets\\img\\core-img\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\core-img\\favorites.png",
+      "PackagePath": "staticwebassets\\img\\core-img\\favorites.png"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\core-img\\logo.png",
+      "PackagePath": "staticwebassets\\img\\core-img\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\core-img\\logo2.png",
+      "PackagePath": "staticwebassets\\img\\core-img\\logo2.png"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\core-img\\paypal.png",
+      "PackagePath": "staticwebassets\\img\\core-img\\paypal.png"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\core-img\\search.png",
+      "PackagePath": "staticwebassets\\img\\core-img\\search.png"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\pro-big-1.jpg",
+      "PackagePath": "staticwebassets\\img\\product-img\\pro-big-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\pro-big-2.jpg",
+      "PackagePath": "staticwebassets\\img\\product-img\\pro-big-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\pro-big-3.jpg",
+      "PackagePath": "staticwebassets\\img\\product-img\\pro-big-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\pro-big-4.jpg",
+      "PackagePath": "staticwebassets\\img\\product-img\\pro-big-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\product1.jpg",
+      "PackagePath": "staticwebassets\\img\\product-img\\product1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\product2.jpg",
+      "PackagePath": "staticwebassets\\img\\product-img\\product2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\product3.jpg",
+      "PackagePath": "staticwebassets\\img\\product-img\\product3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\product4.jpg",
+      "PackagePath": "staticwebassets\\img\\product-img\\product4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\product5.jpg",
+      "PackagePath": "staticwebassets\\img\\product-img\\product5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\product6.jpg",
+      "PackagePath": "staticwebassets\\img\\product-img\\product6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\js\\active.js",
+      "PackagePath": "staticwebassets\\js\\active.js"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\js\\classy-nav.min.js",
+      "PackagePath": "staticwebassets\\js\\classy-nav.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\js\\jquery\\jquery-2.2.4.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery\\jquery-2.2.4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\js\\map-active.js",
+      "PackagePath": "staticwebassets\\js\\map-active.js"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\js\\plugins.js",
+      "PackagePath": "staticwebassets\\js\\plugins.js"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\js\\popper.min.js",
+      "PackagePath": "staticwebassets\\js\\popper.min.js"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.WebApplication1.props",
+      "PackagePath": "build\\WebApplication1.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.WebApplication1.props",
+      "PackagePath": "buildMultiTargeting\\WebApplication1.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.WebApplication1.props",
+      "PackagePath": "buildTransitive\\WebApplication1.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
