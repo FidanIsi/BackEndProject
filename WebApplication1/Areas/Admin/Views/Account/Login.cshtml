@@ -1,4 +1,5 @@
-﻿@section CSS {
+﻿@model AccountLoginVM
+@section CSS {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
@@ -9,34 +10,43 @@
     <div class="left-section"></div>
     <div class="right-section">
         <div class="login-container">
-            <form class="login-form">
+            <form class="login-form" asp-controller="Account" asp-action="Login" method="post">
                 <h2 class="login-title"><i class="fas fa-user-circle"></i> Login</h2>
                 <div class="form-control">
                     <i class="fas fa-user icon"></i>
-                    <input type="text" placeholder="Username" id="username" required>
+                    <input asp-for="Email" placeholder="Email" id="Email" required>
+                    <span asp-validation-for="Email" style="color:red"></span>
                 </div>
                 <div class="form-control">
                     <i class="fas fa-lock icon"></i>
-                    <input type="password" placeholder="Password" id="password">
+                    <input asp-for="Password" placeholder="Password" id="password">
+                    <span asp-validation-for="Password" style="color:red"></span>
                 </div>
                 <div class="remember-me">
-                    <input type="checkbox" id="rememberMe" class="checkbox-input">
+                    <input asp-for="RememberMe" type="checkbox" id="rememberMe" class="checkbox-input">
                     <span class="checkbox-custom"></span>
                     <label for="rememberMe">Remember me</label>
                 </div>
-
                 <div class="social-login">
                     <i class="fab fa-google social-icon"></i>
                     <i class="fab fa-facebook-f social-icon"></i>
                     <i class="fab fa-twitter social-icon"></i>
                 </div>
-                <button type="submit">Login</button>
+                <button onclick="submitForm()" type="submit">Login</button>
+                @if (!string.IsNullOrWhiteSpace(Model?.ErrorMessage))
+                {
+                    <span style="color:red">@Model.ErrorMessage</span>
+                }
             </form>
         </div>
     </div>
 </div>
-
+<script>
+    function submitForm() {
+        document.querySelector('.login-form').submit();
+    }
+</script>
 @section Scripts{
-
+    <partial name="_ValidationScriptsPartial" />
     <script src="~/admin/assets/js/login.js"></script>
 }
