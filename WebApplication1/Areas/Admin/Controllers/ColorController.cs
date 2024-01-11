@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 using WebApplication1.Entities;
 
 namespace WebApplication1.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Authorize]
     public class ColorController : Controller
     {
         private readonly AppDbContext _context;
@@ -13,10 +16,9 @@ namespace WebApplication1.Areas.Admin.Controllers
         {
             _context = context;
         }
-
         public IActionResult Index()
         {
-            IEnumerable<Color> colors = _context.Colors.Include(c => c.ProductColors).ThenInclude(pc => pc.Product);
+            IEnumerable<Color> colors = _context.Colors.AsEnumerable();
             return View(colors);
         }
 
@@ -27,7 +29,7 @@ namespace WebApplication1.Areas.Admin.Controllers
 
         [HttpPost]
         [ActionName("Add")]
-        [ValidateAntiForgeryToken]
+        [AutoValidateAntiforgeryToken]
         public IActionResult Add(Color newColor)
         {
             if (!ModelState.IsValid)
@@ -39,85 +41,31 @@ namespace WebApplication1.Areas.Admin.Controllers
                 }
                 return View();
             }
-
             bool isDuplicated = _context.Colors.Any(c => c.ColorName == newColor.ColorName);
             if (isDuplicated)
             {
                 ModelState.AddModelError("", "You cannot duplicate value");
                 return View();
             }
-
+            bool isValueDuplicated = _context.Colors.Any(c => c.Value == newColor.Value);
+            if (isValueDuplicated)
+            {
+                ModelState.AddModelError("", "You cannot duplicate value");
+                return View();
+            }
             _context.Colors.Add(newColor);
             _context.SaveChanges();
 
-            return RedirectToAction(nameof(Index));
-        }
-
-        public IActionResult Update(int id)
-        {
-            if (id == 0)
-            {
-                return NotFound();
-            }
-
-            Color colorToUpdate = _context.Colors.Find(id);
-
-            if (colorToUpdate == null)
-            {
-                return NotFound();
-            }
-
-            return View(colorToUpdate);
-        }
-
-        [HttpPost]
-        [ActionName("Update")]
-        [AutoValidateAntiforgeryToken]
-        public IActionResult Update(int id, Color editedColor)
-        {
-            if (id != editedColor.Id)
-            {
-                return BadRequest();
-            }
-
-            Color colorToUpdate = _context.Colors.Find(id);
-
-            if (colorToUpdate == null)
-            {
-                return NotFound();
-            }
-
-            bool duplicate = _context.Colors.Any(c => c.ColorName == editedColor.ColorName && editedColor.ColorName != colorToUpdate.ColorName);
-
-            if (duplicate)
-            {
-                ModelState.AddModelError("", "You cannot duplicate color name");
-                return View(colorToUpdate);
-            }
-
-            colorToUpdate.ColorName = editedColor.ColorName;
-
-            _context.SaveChanges();
 
             return RedirectToAction(nameof(Index));
         }
-
 
         public IActionResult Delete(int id)
         {
-            if (id == 0)
-            {
-                return NotFound();
-            }
-
-            Color colorToDelete = _context.Colors.Find(id);
-
-            if (colorToDelete == null)
-            {
-                return NotFound();
-            }
-
-            return View(colorToDelete);
+            if (id == 0) return NotFound();
+            Color color = _context.Colors.FirstOrDefault(c => c.Id == id);
+            if (color is null) return NotFound();
+            return View(color);
         }
 
         [HttpPost]
@@ -125,7 +73,7 @@ namespace WebApplication1.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            Color colorToDelete = _context.Colors.Find(id);
+            Color colorToDelete = _context.Colors.FirstOrDefault(c => c.Id == id);
 
             if (colorToDelete == null)
             {
@@ -138,5 +86,38 @@ namespace WebApplication1.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult Update(int id)
+        {
+            if (id == 0) return NotFound();
+            Color colors = _context.Colors.FirstOrDefault(c => c.Id == id);
+            if (colors is null) return NotFound();
+            return View(colors);
+        }
+
+        [HttpPost]
+        [ActionName("Update")]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult Update(int id, Color edited)
+        {
+            if (id != edited.Id) return BadRequest();
+            Color color = _context.Colors.FirstOrDefault(c => c.Id == id);
+            if (color is null) return NotFound();
+            bool duplicate = _context.Colors.Any(c => c.ColorName == edited.ColorName && c.Id != id);
+            if (duplicate)
+            {
+                ModelState.AddModelError("", "You cannot duplicate color name");
+                return View(color);
+            }
+            bool isValueDuplicate = _context.Colors.Any(c => c.Value == edited.Value && c.Id != id);
+            if (isValueDuplicate)
+            {
+                ModelState.AddModelError("", "You cannot duplicate color value");
+                return View(color);
+            }
+            color.ColorName = edited.ColorName;
+            color.Value = edited.Value;
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

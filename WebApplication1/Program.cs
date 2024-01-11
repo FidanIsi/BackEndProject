@@ -4,6 +4,7 @@ using System.Data;
 using WebApplication1.Data;
 using WebApplication1.Entities;
 using WebApplication1.Helper;
+using WebApplication1.Services;
 
 namespace WebApplication1
 {
@@ -27,6 +28,8 @@ namespace WebApplication1
                 opt.Password.RequireUppercase = false;
                 opt.Password.RequireLowercase = false;
             }).AddEntityFrameworkStores<AppDbContext>();
+
+            builder.Services.AddSingleton<FileService>();
 
             var app = builder.Build();
 

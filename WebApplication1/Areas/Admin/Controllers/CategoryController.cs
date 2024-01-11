@@ -54,32 +54,6 @@ namespace WebApplication1.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Update(int id)
-        {
-            if (id == 0) return NotFound();
-            Category category = _context.Categories.FirstOrDefault(c => c.Id == id);
-            if (category is null) return NotFound();
-            return View(category);
-        }
-
-        [HttpPost]
-        [AutoValidateAntiforgeryToken]
-        public IActionResult Update(int id, Category edited)
-        {
-            if (id != edited.Id) return BadRequest();
-            Category category = _context.Categories.FirstOrDefault(c => c.Id == id);
-            if (category is null) return NotFound();
-            bool duplicate = _context.Categories.Any(c => c.CategoryName == edited.CategoryName && edited.CategoryName != category.CategoryName);//test == albert 
-            if (duplicate)
-            {
-                ModelState.AddModelError("", "You cannot duplicate category name");
-                return View(category);
-            }
-            category.CategoryName = edited.CategoryName;
-            _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
-        }
-
         public IActionResult Delete(int id)
         {
             if (id == 0) return NotFound();
@@ -103,6 +77,32 @@ namespace WebApplication1.Areas.Admin.Controllers
             _context.Categories.Remove(categoryToDelete);
             _context.SaveChanges();
 
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Update(int id)
+        {
+            if (id == 0) return NotFound();
+            Category category = _context.Categories.FirstOrDefault(c => c.Id == id);
+            if (category is null) return NotFound();
+            return View(category);
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult Update(int id, Category edited)
+        {
+            if (id != edited.Id) return BadRequest();
+            Category category = _context.Categories.FirstOrDefault(c => c.Id == id);
+            if (category is null) return NotFound();
+            bool duplicate = _context.Categories.Any(c => c.CategoryName == edited.CategoryName && edited.CategoryName != category.CategoryName);//test == albert 
+            if (duplicate)
+            {
+                ModelState.AddModelError("", "You cannot duplicate category name");
+                return View(category);
+            }
+            category.CategoryName = edited.CategoryName;
+            _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
     }

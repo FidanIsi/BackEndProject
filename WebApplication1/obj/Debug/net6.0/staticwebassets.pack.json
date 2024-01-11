@@ -37,6 +37,14 @@
       "PackagePath": "staticwebassets\\admin\\assets\\js\\login.js"
     },
     {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\admin\\assets\\js\\productAdd.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\js\\productAdd.js"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\admin\\assets\\js\\productUpdate.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\js\\productUpdate.js"
+    },
+    {
       "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\admin\\assets\\js\\sidebarmenu.js",
       "PackagePath": "staticwebassets\\admin\\assets\\js\\sidebarmenu.js"
     },
@@ -2635,6 +2643,26 @@
     {
       "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\core-img\\search.png",
       "PackagePath": "staticwebassets\\img\\core-img\\search.png"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\1.png4e0d47b2-664d-4668-b1f3-5868d7879f06.png",
+      "PackagePath": "staticwebassets\\img\\product-img\\1.png4e0d47b2-664d-4668-b1f3-5868d7879f06.png"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\1.pngaf124794-bb5a-4595-9ff9-14d3aa47ede9.png",
+      "PackagePath": "staticwebassets\\img\\product-img\\1.pngaf124794-bb5a-4595-9ff9-14d3aa47ede9.png"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\2.pngd078d535-c5ee-48db-9874-7f1b4c966089.png",
+      "PackagePath": "staticwebassets\\img\\product-img\\2.pngd078d535-c5ee-48db-9874-7f1b4c966089.png"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\blog-removebg-preview.pngc5c1c640-cab3-47c6-a96b-de40ea25b669.png",
+      "PackagePath": "staticwebassets\\img\\product-img\\blog-removebg-preview.pngc5c1c640-cab3-47c6-a96b-de40ea25b669.png"
+    },
+    {
+      "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\night.jpg2b4868bc-5e45-4e89-9ceb-f8e575a57f83.jpg",
+      "PackagePath": "staticwebassets\\img\\product-img\\night.jpg2b4868bc-5e45-4e89-9ceb-f8e575a57f83.jpg"
     },
     {
       "Id": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\pro-big-1.jpg",

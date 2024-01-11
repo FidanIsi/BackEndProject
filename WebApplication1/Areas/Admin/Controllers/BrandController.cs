@@ -54,32 +54,6 @@ namespace WebApplication1.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Update(int id)
-        {
-            if (id == 0) return NotFound();
-            Brand category = _context.Brands.FirstOrDefault(c => c.Id == id);
-            if (category is null) return NotFound();
-            return View(category);
-        }
-
-        [HttpPost]
-        [AutoValidateAntiforgeryToken]
-        public IActionResult Update(int id, Brand edited)
-        {
-            if (id != edited.Id) return BadRequest();
-            Brand brand = _context.Brands.FirstOrDefault(c => c.Id == id);
-            if (brand is null) return NotFound();
-            bool duplicate = _context.Brands.Any(c => c.BrandName == edited.BrandName && edited.BrandName != brand.BrandName);
-            if (duplicate)
-            {
-                ModelState.AddModelError("", "You cannot duplicate brand name");
-                return View(brand);
-            }
-            brand.BrandName = edited.BrandName;
-            _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
-        }
-
         public IActionResult Delete(int id)
         {
             if (id == 0) return NotFound();
@@ -103,6 +77,32 @@ namespace WebApplication1.Areas.Admin.Controllers
             _context.Brands.Remove(brandToDelete);
             _context.SaveChanges();
 
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Update(int id)
+        {
+            if (id == 0) return NotFound();
+            Brand category = _context.Brands.FirstOrDefault(c => c.Id == id);
+            if (category is null) return NotFound();
+            return View(category);
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult Update(int id, Brand edited)
+        {
+            if (id != edited.Id) return BadRequest();
+            Brand brand = _context.Brands.FirstOrDefault(c => c.Id == id);
+            if (brand is null) return NotFound();
+            bool duplicate = _context.Brands.Any(c => c.BrandName == edited.BrandName && edited.BrandName != brand.BrandName);
+            if (duplicate)
+            {
+                ModelState.AddModelError("", "You cannot duplicate brand name");
+                return View(brand);
+            }
+            brand.BrandName = edited.BrandName;
+            _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
     }
