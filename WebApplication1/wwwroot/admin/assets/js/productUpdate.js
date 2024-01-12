@@ -1,13 +1,22 @@
-﻿const imgInputs = document.querySelectorAll('.img-input');
+﻿const imgInput = document.querySelector('.img-input');
+const imgPreviewContainer = document.querySelector('.img-preview-container');
 
-imgInputs.forEach((imgInput, index) => {
-    imgInput.addEventListener('change', (e) => {
-        const img = e.target.files[0];
-        const blobUrl = URL.createObjectURL(img);
-        const imgPreview = document.querySelectorAll('.img-preview')[index];
-        imgPreview.setAttribute('src', blobUrl);
-    });
-});
+imgInput.addEventListener('change', (e) => {
+    imgPreviewContainer.innerHTML = '';
+
+    for (const file of e.target.files) {
+        const imgDiv = document.createElement('div');
+        imgDiv.setAttribute('class', 'img-preview');
+
+        const img = document.createElement('img');
+        img.style.width = "100%";
+        const blobUrl = URL.createObjectURL(file);
+        img.setAttribute('src', blobUrl);
+        imgDiv.appendChild(img);
+
+        imgPreviewContainer.appendChild(imgDiv);
+    }
+}); 
 
 const deleteButtons = document.querySelectorAll('.delete-btn');
 

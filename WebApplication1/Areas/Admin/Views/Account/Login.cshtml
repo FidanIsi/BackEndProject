@@ -21,8 +21,8 @@
                     <span asp-validation-for="Email" style="color:red"></span>
                 </div>
                 <div class="form-control">
-                    <i class="fas fa-lock icon"></i>
-                    <input asp-for="Password" placeholder="Password" id="password">
+                    <i class="fas fa-lock icon" id="togglePassword"></i>
+                    <input asp-for="Password" placeholder="Password" type="password" id="password">
                     <span asp-validation-for="Password" style="color:red"></span>
                 </div>
                 <div class="remember-me">
@@ -35,7 +35,7 @@
                     <i class="fab fa-facebook-f social-icon"></i>
                     <i class="fab fa-twitter social-icon"></i>
                 </div>
-                <button onclick="submitForm()" type="submit">Login</button>
+                <button type="submit">Login</button>
                 @if (!string.IsNullOrWhiteSpace(Model?.ErrorMessage))
                 {
                     <span style="color:red">@Model.ErrorMessage</span>
@@ -44,11 +44,7 @@
         </div>
     </div>
 </div>
-<script>
-    function submitForm() {
-        document.querySelector('.login-form').submit();
-    }
-</script>
+
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
     <script src="~/admin/assets/js/login.js"></script>

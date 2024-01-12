@@ -71,16 +71,25 @@ namespace WebApplication1.Areas.Admin.Controllers
             var foundBrand = _context.Brands.FirstOrDefault(x => x.Id == model.BrandId);
             var foundColor = _context.Colors.FirstOrDefault(x => x.Id == model.ColorId);
 
-            if (foundCategory == null || foundBrand == null || foundColor == null)
+            if (foundCategory == null || foundBrand == null)
             {
                 model.Categories = _context.Categories.AsNoTracking().ToList();
                 model.Brands = _context.Brands.AsNoTracking().ToList();
-                model.Colors = _context.Colors.AsNoTracking().ToList();
                 return View(model);
             }
 
             newProduct.Category = foundCategory;
             newProduct.Brand = foundBrand;
+
+            if (foundColor is null) return View(model);
+
+            newProduct.ProductColors = new()
+            {
+                new ProductColor
+                {
+                    Color = foundColor
+                }
+            };
 
             var imageUrls = _fileService.AddFile(model.Image, Path.Combine("img", "product-img"));
 
@@ -122,13 +131,12 @@ namespace WebApplication1.Areas.Admin.Controllers
         }
         public IActionResult Update(int? id)
         {
-            if (id is null)
-            {
-                return BadRequest();
-            }
+            if (id is null) return BadRequest();
+
 
             Product product = _context.Products
-                .Include(x => x.ProductColors).ThenInclude(x=>x.Color)
+                .Include(p => p.Category).Include(p => p.Brand)
+                .Include(x => x.ProductColors).ThenInclude(x => x.Color)
                 .Include(x => x.ProductImages).ThenInclude(x => x.Image)
                 .FirstOrDefault(x => x.Id == id);
 
@@ -137,14 +145,17 @@ namespace WebApplication1.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            List<Category> categories = _context.Categories.AsNoTracking().ToList();
-            List<Brand> brands = _context.Brands.AsNoTracking().ToList();
-            List<Color> colors = _context.Colors.AsNoTracking().ToList();
+            List<Category> categories = _context.Categories.ToList();
+            List<Brand> brands = _context.Brands.ToList();
+            List<Color> colors = _context.Colors.ToList();
 
-            List<string> currentImageUrls = product.ProductImages?.Select(pi => pi.Image.ImageUrl).ToList() ?? new List<string>();
-
-            ProductUpdateVM updatedModel = new ProductUpdateVM()
+            List<string> currentImageUrls = product.ProductImages?
+                .Select(pi => pi?.Image?.ImageUrl)
+                .Where(url => url != null)
+                .ToList() ?? new List<string>();
+            ProductUpdateVM updatedModel = new()
             {
+                Id = product.Id,
                 Name = product.Name,
                 Price = product.Price,
                 Description = product.Description,
@@ -162,9 +173,98 @@ namespace WebApplication1.Areas.Admin.Controllers
             {
                 updatedModel.Colors = new List<Color>();
             }
-
             return View(updatedModel);
         }
 
+        [HttpPost]
+        public IActionResult Update(ProductUpdateVM editedProduct)
+        {
+            if (!ModelState.IsValid)
+            {
+                foreach (string message in ModelState.Values.SelectMany(v => v.Errors)
+                                    .Select(e => e.ErrorMessage))
+                {
+                    ModelState.AddModelError("", message);
+                }
+
+                return View(editedProduct);
+            }
+
+            Product product = _context.Products
+                .Include(p => p.Category).Include(p => p.Brand)
+                .Include(x => x.ProductColors).ThenInclude(x => x.Color)
+                .Include(x => x.ProductImages).ThenInclude(x => x.Image)
+                .FirstOrDefault(p => p.Id == editedProduct.Id);
+
+            if (product is null)
+                return NotFound();
+
+            if (editedProduct.CurrentImage != null)
+            {
+                foreach (var currentImageUrl in product.ProductImages.Select(pi => pi.Image.ImageUrl).Except(editedProduct.CurrentImage))
+                {
+                    _fileService.DeleteFile(currentImageUrl, Path.Combine("img", "product-img"));
+                }
+                product.ProductImages.RemoveAll(pi => !editedProduct.CurrentImage.Contains(pi.Image.ImageUrl));
+            }
+
+            if (editedProduct.Image != null && editedProduct.Image.Any())
+            {
+                foreach (var currentImageUrl in product.ProductImages.Select(pi => pi.Image.ImageUrl))
+                {
+                    _fileService.DeleteFile(currentImageUrl, Path.Combine("img", "product-img"));
+                }
+
+                var newImageUrls = _fileService.AddFile(editedProduct.Image, Path.Combine("img", "product-img"));
+                product.ProductImages = newImageUrls.Select(imageUrl => new ProductImage
+                {
+                    Image = new Image
+                    {
+                        ImageUrl = imageUrl
+                    }
+                }).ToList();
+            }
+
+            var foundCategory = _context.Categories.FirstOrDefault(x => x.Id == editedProduct.CategoryId);
+            var foundBrand = _context.Brands.FirstOrDefault(x => x.Id == editedProduct.BrandId);
+            var foundColor = _context.Colors.FirstOrDefault(x => x.Id == editedProduct.ColorId);
+
+
+            product.Name = editedProduct.Name;
+            product.Price = (decimal)editedProduct.Price;
+            product.Description = editedProduct.Description;
+            product.InStock = editedProduct.InStock;
+            product.CategoryId = editedProduct.CategoryId;
+            product.BrandId = editedProduct.BrandId;
+            product.Category = foundCategory;
+            product.Brand = foundBrand;
+
+            product.ProductColors = new List<ProductColor>
+            {
+                new ProductColor
+                {
+                    ColorId = (int)editedProduct.ColorId
+                }
+            };
+
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Details(int? id)
+        {
+            if (id is null) return BadRequest();
+            Product? product = _context.Products.Include(x => x.Category)
+                .Include(p => p.Brand)
+                .Include(p => p.ProductImages).ThenInclude(pi => pi.Image)
+                .Include(p => p.ProductColors).ThenInclude(pi => pi.Color)
+                .FirstOrDefault(x => x.Id == id);
+
+            if (product is null) return NotFound();
+            ViewBag.Color = product.ProductColors?.FirstOrDefault()?.Color?.Value;
+            return View(product);
+        }
+        
     }
 }
