@@ -1,0 +1,311 @@
+﻿@model ShopIndexVM
+
+@{
+    ViewData["Title"] = "Shop";
+}
+
+
+<div class="shop_sidebar_area">
+
+    <!-- ##### Single Widget ##### -->
+    <div class="widget catagory mb-50">
+        <!-- Widget Title -->
+        <h6 class="widget-title mb-30">Catagories</h6>
+
+        <!--  Catagories  -->
+        <div class="catagories-menu">
+            <ul>
+                <li class="title-link active" data-titleid="0"><a href="#">Bütün məhsullar</a></li>
+
+                @foreach (var category in ViewBag.Categories)
+                {
+                    <li class="title-link" data-titleid="@category.Id"><a href="#">@category.CategoryName</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <!-- ##### Single Widget ##### -->
+    <div class="widget brands mb-50">
+        <!-- Widget Title -->
+        <h6 class="widget-title mb-30">Brands</h6>
+
+        <div class="widget-desc">
+            @foreach (var brand in ViewBag.Brands)
+            {
+                 <div class="form-check">
+                    <label class="form-check-label brand-link" data-brandid="@brand.Id" for="@brand.BrandName">@brand.BrandName</label>
+                </div>
+            }   
+          </div>
+    </div>
+
+    <!-- ##### Single Widget ##### -->
+    <div class="widget color mb-50">
+        <!-- Widget Title -->
+        <h6 class="widget-title mb-30">Color</h6>
+
+        <div class="widget-desc">
+            <ul class="d-flex">
+                @foreach (var color in ViewBag.Color)
+                {
+                    <li class="color-link" data-colorid="@color.Id"><a style="background-color:@color.ColorName"></a></li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <!-- ##### Single Widget ##### -->
+    <div class="widget price mb-50">
+        <!-- Widget Title -->
+        <h6 class="widget-title mb-30">Price</h6>
+
+        <div class="widget-desc">
+            <div class="slider-range">
+                <div data-min="10" data-max="1000" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="10" data-value-max="1000" data-label-result="">
+                    <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
+                    <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
+                    <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
+                </div>
+                <div class="range-price">$10 - $1000</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="amado_product_area section-padding-100">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="product-topbar d-xl-flex align-items-end justify-content-between">
+                    <!-- Total Products -->
+                    <div class="total-products">
+                        <p>Showing 1-8 0f 25</p>
+                        <div class="view d-flex">
+                            <a id="smallScreen"><i class="fa fa-th-large" aria-hidden="true"></i></a>
+                            <a id="largeScreen"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <!-- Sorting -->
+                    <div class="product-sorting d-flex">
+                        @*<div class="sort-by-date d-flex align-items-center mr-15">
+                            <p>Sort by</p>
+                            <form action="#" method="get">
+                                <select name="order" id="sortBydate">
+                                    <option value="asc" @(ViewBag.Order == "asc" ? "selected" : "")>Ascending</option>
+                                    <option value="desc" @(ViewBag.Order == "desc" ? "selected" : "")>Descending</option>
+                                </select>
+                            </form>
+                        </div>*@
+
+                        <div class="view-product d-flex align-items-center">
+                            <p>View</p>
+                            <form action="#" method="get">
+                                <select name="select" id="viewProduct">
+                                    <option value="value">2</option>
+                                    <option value="value">4</option>
+                                    <option value="value">6</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="partials">
+
+            @await Html.PartialAsync("_ShopPartial",Model)
+        </div>
+
+    </div>
+</div>
+
+@section Script{
+<script>
+        var titleLinks = document.querySelectorAll('.title-link');
+        var brandLinks = document.querySelectorAll('.brand-link');
+        var colorLinks = document.querySelectorAll('.color-link');
+
+    titleLinks.forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            titleLinks.forEach(function (otherLink) {
+                otherLink.classList.remove('active');
+            });
+
+            this.classList.add('active');
+
+            var titleid = this.getAttribute('data-titleid');
+
+            fetch('/shop/sorted?titleid=' + titleid)
+                .then(response => response.text())
+                .then(data => {
+                    var partialContainer = document.getElementById('partials');
+                    partialContainer.innerHTML = data;
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+    });
+       
+    
+    brandLinks.forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                brandLinks.forEach(function (otherLink) {
+                    otherLink.classList.remove('active');
+                });
+
+                this.classList.add('active');
+
+                var brandid = this.getAttribute('data-brandid');
+
+                fetch('/shop/sorted?brandid=' + brandid)
+                    .then(response => response.text())
+                    .then(data => {
+                        var partialContainer = document.getElementById('partials');
+                        partialContainer.innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            });
+        });
+
+        colorLinks.forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+
+
+                var colorid = this.getAttribute('data-colorid');
+
+                fetch('/shop/sorted?colorid=' + colorid)
+                    .then(response => response.text())
+                    .then(data => {
+                        var partialContainer = document.getElementById('partials');
+                        partialContainer.innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            });
+        });
+
+</script>
+
+<script>
+        var largee = document.querySelector('#largeScreen');
+        var small = document.querySelector('#smallScreen');
+
+        largee.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            var partialElement = document.querySelector('#partials');
+
+            if (partialElement) {
+                var colSm6Elements = partialElement.querySelectorAll('.col-sm-6');
+                colSm6Elements.forEach(function (element) {
+                    element.classList.remove('col-sm-6');
+                    element.classList.remove('col-sm-12');
+                    element.classList.add('col-sm-12');
+                });
+            }
+        });
+
+        small.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            var partialElement = document.querySelector('#partials');
+
+            if (partialElement) {
+                partialElement.querySelectorAll('.col-sm-12').forEach(function (element) {
+                    element.classList.remove('col-sm-12');
+                    element.classList.remove('col-sm-6');
+                    element.classList.add('col-sm-6');
+                });
+            }
+        });
+
+
+</script>
+
+<script>
+        const productsSection = document.querySelector("#partials");
+        const pageBtns = document.querySelectorAll(".page-btn");
+
+        pageBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const dataPage = this.getAttribute('data-page');
+                const order = getQueryParameter('order') || 'desc';
+
+                fetch(`/shop/filter?page=${dataPage}&order=${order}`)
+                    .then(response => response.text())
+                    .then(data => {
+                        productsSection.innerHTML = data;
+                        initializePagination();
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            });
+        });
+
+        const descBtn = document.querySelector(".desc-btn");
+        const ascBtn = document.querySelector(".asc-btn");
+
+        descBtn.addEventListener('click', () => {
+            setQueryParameter("order", "desc");
+            renderProducts();
+        });
+
+        ascBtn.addEventListener('click', () => {
+            setQueryParameter("order", "asc");
+            renderProducts();
+        });
+
+        function renderProducts() {
+            const page = getQueryParameter('page') || 1;
+            const order = getQueryParameter('order') || 'desc';
+
+            fetch(`/shop/filter?page=${page}&order=${order}`)
+                .then(x => x.text())
+                .then(x => {
+                    productsSection.innerHTML = '';
+                    productsSection.innerHTML = x;
+                    initializePagination();
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+
+        function setQueryParameter(key, value) {
+            const url = new URL(window.location.href);
+            url.searchParams.set(key, value);
+            window.history.replaceState(null, null, url);
+        }
+
+        function getQueryParameter(key) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(key);
+        }
+
+        function initializePagination() {
+            pageBtns = document.querySelectorAll(".page-btn");
+
+            pageBtns.forEach(x => {
+                x.addEventListener('click', () => {
+                    const dataPage = x.getAttribute('data-page');
+                    setQueryParameter("page", dataPage);
+                    renderProducts();
+                });
+            });
+        }
+
+</script>
+}

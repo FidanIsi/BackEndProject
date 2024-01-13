@@ -18,12 +18,3 @@ imgInput.addEventListener('change', (e) => {
     }
 }); 
 
-const deleteButtons = document.querySelectorAll('.delete-btn');
-
-deleteButtons.forEach((deleteBtn) => {
-    deleteBtn.addEventListener('click', (e) => {
-        const imgPreview = deleteBtn.previousElementSibling;
-        imgPreview.setAttribute('src', '');
-        deleteBtn.remove();
-    });
-});

@@ -10,15 +10,14 @@ namespace WebApplication1.Helper
             using (var scope = serviceProvider.CreateScope())
             {
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
 
-                string roleName = "Admin";
+                string[] roles = new[] { "Admin" };
 
-                var roleExists = await roleManager.RoleExistsAsync(roleName);
-
-                if (!roleExists)
+                foreach (string role in roles)
                 {
-                    await roleManager.CreateAsync(new IdentityRole(roleName));
+                    var exists = await roleManager.RoleExistsAsync(role);
+                    if (exists) continue;
+                    await roleManager.CreateAsync(new IdentityRole(role));
                 }
 
                 var user = new AppUser
@@ -29,20 +28,14 @@ namespace WebApplication1.Helper
                     UserName = "fidan_ism@mail.ru",
                 };
 
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
                 var existingUser = await userManager.FindByNameAsync("fidan_ism@mail.ru");
-                if (existingUser == null)
-                {
-                    var result = await userManager.CreateAsync(user, "adeliya2000");
+                if (existingUser is not null) return;
 
-                    if (result.Succeeded)
-                    {
-                        await userManager.AddToRoleAsync(user, roleName);
-                    }
-                    else
-                    {
-                        throw new ApplicationException($"Error creating user: {string.Join(", ", result.Errors)}");
-                    }
-                }
+                await userManager.CreateAsync(user, "adeliya2000");
+                await userManager.AddToRoleAsync(user, roles[0]);
+
+                return;
             }
         }
     }

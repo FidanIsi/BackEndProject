@@ -204,8 +204,8 @@ namespace WebApplication1.Areas.Admin.Controllers
                 foreach (var currentImageUrl in product.ProductImages.Select(pi => pi.Image.ImageUrl).Except(editedProduct.CurrentImage))
                 {
                     _fileService.DeleteFile(currentImageUrl, Path.Combine("img", "product-img"));
+                    product.ProductImages.RemoveAll(pi => pi.Image.ImageUrl == currentImageUrl);
                 }
-                product.ProductImages.RemoveAll(pi => !editedProduct.CurrentImage.Contains(pi.Image.ImageUrl));
             }
 
             if (editedProduct.Image != null && editedProduct.Image.Any())
@@ -252,6 +252,7 @@ namespace WebApplication1.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        
         public IActionResult Details(int? id)
         {
             if (id is null) return BadRequest();

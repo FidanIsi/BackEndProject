@@ -1,0 +1,56 @@
+﻿@model ShopIndexVM
+
+
+@foreach (Product product in Model.Products)
+{
+    <div class="col-sm-6">
+        <div class="single-product-wrapper">
+            <!-- Product Image -->
+            <div class="product-img">
+                <img src="img/product-img/@product.ProductImages?.FirstOrDefault()?.Image.ImageUrl" alt="">
+                <!-- Hover Thumb -->
+                <img class="hover-img" src="img/product-img/@product.ProductImages?.FirstOrDefault(p =>p.Order==1)?.Image.Id" alt="">
+            </div>
+
+            <!-- Product Description -->
+            <div class="product-description d-flex align-items-center justify-content-between">
+                <!-- Product Meta Data -->
+                <div class="product-meta-data">
+                    <div class="line"></div>
+                    <p class="product-price">$@product.Price</p>
+                    <a href="product-details.html">
+                        <h6>@product.Name</h6>
+                    </a>
+                </div>
+                <!-- Ratings & Cart -->
+                <div class="ratings-cart text-right">
+                    <div class="ratings">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                    <div class="cart">
+                        <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/cart.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-12">
+        <nav aria-label="navigation">
+            <ul class="pagination justify-content-end mt-50">
+                @for (int i = 1; i <= Model.TotalPageCount; i++)
+                {
+                    <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                        <a class="page-link page-btn" data-page="@i">@i</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+</div>
