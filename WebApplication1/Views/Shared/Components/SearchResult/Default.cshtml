@@ -1,0 +1,10 @@
+﻿@using WebApplication1.Entities
+@model List<Product>
+
+<ul class="list-group">
+    @foreach (var product in Model)
+    {
+        <a asp-controller="Shop" asp-action="ProductDetail" asp-route-id="@product.Id">
+        <li class="list-group-item">@product.Name</li></a>
+    }
+</ul> 

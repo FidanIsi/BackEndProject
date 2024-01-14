@@ -1,0 +1,68 @@
+﻿@model List<CheckoutVM>
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    caption {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #e0e0e0;
+    }
+</style>
+
+<h3>Checkout</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Company</th>
+            <th>Email</th>
+            <th>Country</th>
+            <th>Address</th>
+            <th>Town</th>
+            <th>ZipCode</th>
+            <th>Phone</th>
+            <th>Comment</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (CheckoutVM checkout in Model)
+        {
+            <tr>
+                <td>@checkout.FirstName</td>
+                <td>@checkout.LastName</td>
+                <td>@checkout.CompanyName</td>
+                <td>@checkout.Email</td>
+                <td>@checkout.Country.Name</td>
+                <td>@checkout.Address</td>
+                <td>@checkout.Town</td>
+                <td>@checkout.ZipCode</td>
+                <td>@checkout.PhoneNumber</td>
+                <td>@checkout.Comment</td>
+            </tr>
+        }
+    </tbody>
+</table>

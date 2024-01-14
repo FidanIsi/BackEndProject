@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations.Schema;
 using WebApplication1.Entities;
 
 namespace WebApplication1.Areas.Admin.Models
@@ -20,7 +21,14 @@ namespace WebApplication1.Areas.Admin.Models
         public int? ColorId { get; set; }
         [ValidateNever]
         public List<Color>? Colors { get; set; }
-        public List<IFormFile>? Image { get; set; }
-        public List<string>? CurrentImage { get; set; }
+        [NotMapped]
+        public List<int>? ImagesId { get; set; }
+        [NotMapped]
+        public List<Image>? AllImages { get; set; }
+        [NotMapped]
+        public List<IFormFile>? Images { get; set; }
+
+        [NotMapped]
+        public List<int>? DeletedImageIds { get; set; }
     }
 }

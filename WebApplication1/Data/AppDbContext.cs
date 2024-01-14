@@ -22,6 +22,7 @@ namespace WebApplication1.Data
         public DbSet<ProductColor> ProductColors { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
-
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<Checkout> Checkouts { get; set; }
     }
 }

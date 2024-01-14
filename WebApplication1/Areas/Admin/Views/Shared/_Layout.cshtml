@@ -66,6 +66,14 @@
                                 <span class="hide-menu">Color</span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" asp-area="Admin" asp-controller="Checkout" asp-action="Index" aria-expanded="false">
+                                <span>
+                                    <i class="bi bi-palette"></i>
+                                </span>
+                                <span class="hide-menu">Checkout</span>
+                            </a>
+                        </li>
                     </ul>
                     <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
                         <div class="d-flex">
@@ -141,7 +149,8 @@
             </div>
         </div>
     </div>
-    @RenderSection("Scripts", false)
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <script src="~/admin/assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="~/admin/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/admin/assets/js/sidebarmenu.js"></script>
@@ -149,6 +158,7 @@
     <script src="~/admin/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="~/admin/assets/libs/simplebar/dist/simplebar.js"></script>
     <script src="~/admin/assets/js/dashboard.js"></script>
+    @RenderSection("Scripts", false)
 </body>
 
 </html>

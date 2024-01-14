@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fSkfl6sB9pUMTUeXaZUBz3PPpUlKeRw6b/R/32KX/fQ=",
+  "Hash": "PGpo3n7SkypLmWSdaarmN1cZeRs51+h663spmCe5B18=",
   "Source": "WebApplication1",
   "BasePath": "_content/WebApplication1",
   "Mode": "Default",
@@ -11271,6 +11271,23 @@
       "OriginalItemSpec": "wwwroot\\img\\core-img\\search.png"
     },
     {
+      "Identity": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\1.png2529123e-ca77-4718-8f03-d3417bab3ce5.png",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "img/product-img/1.png2529123e-ca77-4718-8f03-d3417bab3ce5.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\product-img\\1.png2529123e-ca77-4718-8f03-d3417bab3ce5.png"
+    },
+    {
       "Identity": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\1.png4e0d47b2-664d-4668-b1f3-5868d7879f06.png",
       "SourceId": "WebApplication1",
       "SourceType": "Discovered",
@@ -11322,6 +11339,23 @@
       "OriginalItemSpec": "wwwroot\\img\\product-img\\1.pngaf124794-bb5a-4595-9ff9-14d3aa47ede9.png"
     },
     {
+      "Identity": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\2 - Copy.png19f03dca-7089-4d56-bf22-c9daec777813.png",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "img/product-img/2 - Copy.png19f03dca-7089-4d56-bf22-c9daec777813.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\product-img\\2 - Copy.png19f03dca-7089-4d56-bf22-c9daec777813.png"
+    },
+    {
       "Identity": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\2.pngd078d535-c5ee-48db-9874-7f1b4c966089.png",
       "SourceId": "WebApplication1",
       "SourceType": "Discovered",
@@ -11337,6 +11371,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\product-img\\2.pngd078d535-c5ee-48db-9874-7f1b4c966089.png"
+    },
+    {
+      "Identity": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\2.pngeb9d62b1-eb96-4e47-bb1e-1c8f85f30c19.png",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "img/product-img/2.pngeb9d62b1-eb96-4e47-bb1e-1c8f85f30c19.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\product-img\\2.pngeb9d62b1-eb96-4e47-bb1e-1c8f85f30c19.png"
     },
     {
       "Identity": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\2.pngfccd5499-89c8-4c8e-971b-9e055abf5494.png",
@@ -11390,6 +11441,40 @@
       "OriginalItemSpec": "wwwroot\\img\\product-img\\Bed.jpeg81c73bc5-229e-4db2-9894-871041c93f85.jpeg"
     },
     {
+      "Identity": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\Bed.jpegca22ff81-a6f0-4fbb-ab6e-52d6ab7d4977.jpeg",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "img/product-img/Bed.jpegca22ff81-a6f0-4fbb-ab6e-52d6ab7d4977.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\product-img\\Bed.jpegca22ff81-a6f0-4fbb-ab6e-52d6ab7d4977.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\Bed2.jpeg65003de4-0ad6-41f2-b6c5-681838acad9d.jpeg",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "img/product-img/Bed2.jpeg65003de4-0ad6-41f2-b6c5-681838acad9d.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\product-img\\Bed2.jpeg65003de4-0ad6-41f2-b6c5-681838acad9d.jpeg"
+    },
+    {
       "Identity": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\Bed2.jpegd2541677-2718-4ba4-8db4-486eba27e65f.jpeg",
       "SourceId": "WebApplication1",
       "SourceType": "Discovered",
@@ -11405,6 +11490,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\product-img\\Bed2.jpegd2541677-2718-4ba4-8db4-486eba27e65f.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\blog.png3ab5c36f-29fb-486e-8575-aaff52ef348e.png",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "img/product-img/blog.png3ab5c36f-29fb-486e-8575-aaff52ef348e.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\product-img\\blog.png3ab5c36f-29fb-486e-8575-aaff52ef348e.png"
     },
     {
       "Identity": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\blog-removebg-preview.pngc5c1c640-cab3-47c6-a96b-de40ea25b669.png",
@@ -11490,6 +11592,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\product-img\\family-law1.jpgda403ba4-4584-4bbe-a7ff-bc8cffaf8127.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\jeans_7764707.png9957c675-7968-4f8b-a7e0-394c5dd1f767.png",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "img/product-img/jeans_7764707.png9957c675-7968-4f8b-a7e0-394c5dd1f767.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\product-img\\jeans_7764707.png9957c675-7968-4f8b-a7e0-394c5dd1f767.png"
+    },
+    {
+      "Identity": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\jeans_7764707.pngf7b3548c-ad17-450f-8bc4-1499348cf257.png",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "img/product-img/jeans_7764707.pngf7b3548c-ad17-450f-8bc4-1499348cf257.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\product-img\\jeans_7764707.pngf7b3548c-ad17-450f-8bc4-1499348cf257.png"
     },
     {
       "Identity": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\night.jpg2b4868bc-5e45-4e89-9ceb-f8e575a57f83.jpg",
@@ -11713,6 +11849,40 @@
       "OriginalItemSpec": "wwwroot\\img\\product-img\\product6.jpg"
     },
     {
+      "Identity": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\thumbnail.jpg5dc54490-be28-4871-aff8-f335c402c72b.jpg",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "img/product-img/thumbnail.jpg5dc54490-be28-4871-aff8-f335c402c72b.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\product-img\\thumbnail.jpg5dc54490-be28-4871-aff8-f335c402c72b.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\img\\product-img\\vases1.jpg0bfff382-8e86-4cd9-8b46-0d0c30a4ea27.jpg",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "img/product-img/vases1.jpg0bfff382-8e86-4cd9-8b46-0d0c30a4ea27.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\product-img\\vases1.jpg0bfff382-8e86-4cd9-8b46-0d0c30a4ea27.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\js\\active.js",
       "SourceId": "WebApplication1",
       "SourceType": "Discovered",
@@ -11830,6 +12000,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\popper.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\js\\search.js",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Adeliya\\OneDrive\\İş masası\\Amado-backend\\WebApplication1\\WebApplication1\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "js/search.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\search.js"
     }
   ]
 }

@@ -16,7 +16,7 @@
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="~/css/core-style.css">
     <link rel="stylesheet" href="~/style.css">
-
+    
 </head>
 
 <body>
@@ -30,9 +30,11 @@
                 <div class="col-12">
                     <div class="search-content">
                         <form action="#" method="get">
-                            <input type="search" name="search" id="search" placeholder="Type your keyword...">
+                            <input class="search-input" type="search" name="search" id="search" placeholder="Type your keyword...">
                             <button type="submit"><img src="~/img/core-img/search.png" alt=""></button>
                         </form>
+                        <div class="search-result">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -71,7 +73,7 @@
                     <li><a asp-controller="Shop" asp-action="Index">Shop</a></li>
                     <li><a href="product-details.html">Product</a></li>
                     <li><a href="cart.html">Cart</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
+                    <li><a asp-controller="Checkout" asp-action="Index">Checkout</a></li>
                 </ul>
             </nav>
             <!-- Button Group -->
@@ -185,6 +187,7 @@
         <script src="~/js/plugins.js"></script>
         <!-- Active js -->
         <script src="~/js/active.js"></script>
+    <script src="~/js/search.js"></script>
     @RenderSection("Script",false)
 </body>
 

@@ -1,24 +1,28 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors.Infrastructure;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 using WebApplication1.Entities;
 using WebApplication1.Models;
+using WebApplication1.Services;
 
 namespace WebApplication1.Controllers
 {
     public class ShopController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly ICartService _cartService;
 
-        public ShopController(AppDbContext context)
+        public ShopController(AppDbContext context, ICartService cartService)
         {
             _context = context;
+            _cartService = cartService;
         }
         public async Task<IActionResult> Index(int page = 1, string order = "desc")
         {
             if (page <= 0) page = 1;
 
-            int productsPerPage = 2; // Change this to 2 for 2 products per page
+            int productsPerPage = 2; 
             var productCount = await _context.Products.CountAsync();
 
             int totalPageCount = (int)Math.Ceiling(((decimal)productCount / productsPerPage));
@@ -138,5 +142,55 @@ namespace WebApplication1.Controllers
             return PartialView("_ShopPartial", sortedModel);
         }
 
+        public IActionResult Search(string? input)
+        {
+            var products = input == null ? new List<Product>()
+                : _context.Products
+                    .Where(x => x.Name.ToLower().StartsWith(input.ToLower()))
+                    .ToList();
+
+            return ViewComponent("SearchResult", products);
+        }
+
+        public IActionResult ProductDetail(int? id)
+        {
+            if (id is null) return NotFound();
+
+            Product? product = _context.Products
+                .Include(p => p.ProductImages).ThenInclude(pi => pi.Image)
+                .FirstOrDefault(x => x.Id == id);
+
+            if (product is null) return NotFound();
+
+            ShopIndexVM model = new()
+            {
+                Product = product,
+            };
+
+            return View(model);
+        }
+
+        public IActionResult Basket()
+        {
+            var cartItems = _cartService.GetCartItems();
+            return View(cartItems);
+        }
+
+        [HttpPost]
+        public IActionResult AddToCart(int productId, string productName, decimal price, int quantity)
+        {
+            var item = new CartItem
+            {
+                ProductId = productId,
+                ProductName = productName,
+                Price = price,
+                Quantity = quantity
+            };
+
+            _cartService.AddToCart(item);
+
+            // Redirect to the basket page or any other page as needed
+            return RedirectToAction("Basket");
+        }
     }
 }

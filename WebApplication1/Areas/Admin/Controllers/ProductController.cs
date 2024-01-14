@@ -129,15 +129,16 @@ namespace WebApplication1.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
         public IActionResult Update(int? id)
         {
             if (id is null) return BadRequest();
 
 
             Product product = _context.Products
+                .Include(x => x.ProductImages).ThenInclude(x => x.Image)
                 .Include(p => p.Category).Include(p => p.Brand)
                 .Include(x => x.ProductColors).ThenInclude(x => x.Color)
-                .Include(x => x.ProductImages).ThenInclude(x => x.Image)
                 .FirstOrDefault(x => x.Id == id);
 
             if (product is null)
@@ -149,10 +150,6 @@ namespace WebApplication1.Areas.Admin.Controllers
             List<Brand> brands = _context.Brands.ToList();
             List<Color> colors = _context.Colors.ToList();
 
-            List<string> currentImageUrls = product.ProductImages?
-                .Select(pi => pi?.Image?.ImageUrl)
-                .Where(url => url != null)
-                .ToList() ?? new List<string>();
             ProductUpdateVM updatedModel = new()
             {
                 Id = product.Id,
@@ -166,13 +163,14 @@ namespace WebApplication1.Areas.Admin.Controllers
                 Brands = brands,
                 Colors = colors,
                 ColorId = product.ProductColors.FirstOrDefault()?.ColorId,
-                CurrentImage = currentImageUrls
+                AllImages = product.ProductImages?.Select(p => new Image
+                {
+                    Id = p.Image.Id,
+                    ImageUrl = p.Image.ImageUrl
+                }).ToList() ?? new List<Image>()
             };
 
-            if (updatedModel.Colors == null)
-            {
-                updatedModel.Colors = new List<Color>();
-            }
+            updatedModel.Colors ??= new List<Color>();
             return View(updatedModel);
         }
 
@@ -191,68 +189,68 @@ namespace WebApplication1.Areas.Admin.Controllers
             }
 
             Product product = _context.Products
+                .Include(x => x.ProductImages).ThenInclude(x => x.Image)
                 .Include(p => p.Category).Include(p => p.Brand)
                 .Include(x => x.ProductColors).ThenInclude(x => x.Color)
-                .Include(x => x.ProductImages).ThenInclude(x => x.Image)
                 .FirstOrDefault(p => p.Id == editedProduct.Id);
 
-            if (product is null)
-                return NotFound();
+            if (product is null) return NotFound();
 
-            if (editedProduct.CurrentImage != null)
+            if (editedProduct.DeletedImageIds != null && editedProduct.DeletedImageIds.Any())
             {
-                foreach (var currentImageUrl in product.ProductImages.Select(pi => pi.Image.ImageUrl).Except(editedProduct.CurrentImage))
+                foreach (var deletedImageId in editedProduct.DeletedImageIds)
                 {
-                    _fileService.DeleteFile(currentImageUrl, Path.Combine("img", "product-img"));
-                    product.ProductImages.RemoveAll(pi => pi.Image.ImageUrl == currentImageUrl);
+                    Image imageToDelete = _context.Images.FirstOrDefault(i => i.Id == deletedImageId);
+                    if (imageToDelete != null)
+                    {
+                        var imagePath = Path.Combine("img", "product-img", imageToDelete.ImageUrl);
+                        _fileService.DeleteFile(imageToDelete.ImageUrl, imagePath);
+
+                        _context.Images.Remove(imageToDelete);
+                    }
                 }
+
             }
 
-            if (editedProduct.Image != null && editedProduct.Image.Any())
+            if (editedProduct.Images != null)
             {
-                foreach (var currentImageUrl in product.ProductImages.Select(pi => pi.Image.ImageUrl))
-                {
-                    _fileService.DeleteFile(currentImageUrl, Path.Combine("img", "product-img"));
-                }
-
-                var newImageUrls = _fileService.AddFile(editedProduct.Image, Path.Combine("img", "product-img"));
-                product.ProductImages = newImageUrls.Select(imageUrl => new ProductImage
+                var newImageUrls = _fileService.AddFile(editedProduct.Images, Path.Combine("img", "product-img"));
+                List<ProductImage> newImg = newImageUrls.Select(imageUrl => new ProductImage
                 {
                     Image = new Image
                     {
                         ImageUrl = imageUrl
                     }
                 }).ToList();
+
+                product.ProductImages.AddRange(newImg);
             }
 
-            var foundCategory = _context.Categories.FirstOrDefault(x => x.Id == editedProduct.CategoryId);
-            var foundBrand = _context.Brands.FirstOrDefault(x => x.Id == editedProduct.BrandId);
-            var foundColor = _context.Colors.FirstOrDefault(x => x.Id == editedProduct.ColorId);
-
-
+            var fCategory = _context.Categories.FirstOrDefault(x => x.Id == editedProduct.CategoryId);
+            var fBrand = _context.Brands.FirstOrDefault(x => x.Id == editedProduct.BrandId);
+            var fColor = _context.Colors.FirstOrDefault(x => x.Id == editedProduct.ColorId);
             product.Name = editedProduct.Name;
-            product.Price = (decimal)editedProduct.Price;
+            product.Price = editedProduct.Price;
             product.Description = editedProduct.Description;
             product.InStock = editedProduct.InStock;
             product.CategoryId = editedProduct.CategoryId;
             product.BrandId = editedProduct.BrandId;
-            product.Category = foundCategory;
-            product.Brand = foundBrand;
-
+            product.Category = fCategory;
+            product.Brand = fBrand;
             product.ProductColors = new List<ProductColor>
-            {
-                new ProductColor
-                {
-                    ColorId = (int)editedProduct.ColorId
-                }
-            };
+      {
+          new ProductColor
+          {
+              ColorId = (int)editedProduct.ColorId
+          }
+      };
 
             _context.SaveChanges();
 
             return RedirectToAction(nameof(Index));
         }
 
-        
+
         public IActionResult Details(int? id)
         {
             if (id is null) return BadRequest();
