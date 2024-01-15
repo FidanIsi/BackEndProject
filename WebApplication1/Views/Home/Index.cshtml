@@ -11,7 +11,7 @@
         @foreach (Product product in Model.Products)
         {
             <div class="single-products-catagory clearfix">
-                <a href="shop.html">
+                <a asp-controller="Shop" asp-action="ProductDetail" asp-route-id="@product.Id">
                     <img src="~/img/product-img/@product.ProductImages?.FirstOrDefault()?.Image.ImageUrl" alt="">
                     <!-- Hover Content -->
                     <div class="hover-content">

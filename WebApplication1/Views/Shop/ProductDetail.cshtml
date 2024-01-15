@@ -66,16 +66,26 @@
                             </div>
                         </div>
                         <!-- Avaiable -->
-                        <p class="avaibility"><i class="fa fa-circle"></i> @Model.Product.InStock</p>
+                        @if (Model.Product.InStock)
+                        {
+                            <p class="avaibility">
+                                <i style="color:green;" class="fa fa-circle"></i>
+                                In Stock
+                            </p>
+                        }
+                        else
+                        {
+                            <p class="avaibility">
+                                <i style="color:lightgray;" class="fa fa-circle"></i>
+                                Not Available
+                            </p>
+                        }
                     </div>
 
                     <div class="short_overview my-5">
                         <p>@Model.Product.Description</p>
                     </div>
 
-                    <!-- Add to Cart Form -->
-                    <form action="@Url.Action("AddToCart", "Shop")" method="post">
-                        <!-- Include other form elements as needed -->
                         <div class="cart-btn d-flex mb-50">
                             <p>Qty</p>
                             <div class="quantity">
@@ -85,9 +95,8 @@
                             </div>
                         </div>
                         <input type="hidden" name="productId" value="5" />
-                        <button type="submit" name="addtocart" value="5" class="btn amado-btn">Add to cart</button>
-                    </form>
-
+                        <a asp-controller="Shop" asp-action="AddToBasket" asp-route-id="@Model.Product.Id" name="addtocart" value="5" class="btn amado-btn">Add to cart</a>
+                  
                 </div>
             </div>
         </div>

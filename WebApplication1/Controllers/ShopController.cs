@@ -1,22 +1,20 @@
 ﻿using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 using WebApplication1.Data;
 using WebApplication1.Entities;
 using WebApplication1.Models;
-using WebApplication1.Services;
 
 namespace WebApplication1.Controllers
 {
     public class ShopController : Controller
     {
         private readonly AppDbContext _context;
-        private readonly ICartService _cartService;
 
-        public ShopController(AppDbContext context, ICartService cartService)
+        public ShopController(AppDbContext context)
         {
             _context = context;
-            _cartService = cartService;
         }
         public async Task<IActionResult> Index(int page = 1, string order = "desc")
         {
@@ -169,28 +167,73 @@ namespace WebApplication1.Controllers
 
             return View(model);
         }
-
-        public IActionResult Basket()
+       
+        
+        #region For Basket
+        public IActionResult AddToBasket(int? id)
         {
-            var cartItems = _cartService.GetCartItems();
-            return View(cartItems);
-        }
+            if (id is null) return NotFound();
 
-        [HttpPost]
-        public IActionResult AddToCart(int productId, string productName, decimal price, int quantity)
-        {
-            var item = new CartItem
+            var foundProduct = _context.Products.FirstOrDefault(x => x.Id == id);
+
+            if (foundProduct is null) return NotFound();
+
+            Request.Cookies.TryGetValue("basket", out var basketSerialized);
+
+            Basket basket = null!;
+            if (basketSerialized is null)
             {
-                ProductId = productId,
-                ProductName = productName,
-                Price = price,
-                Quantity = quantity
-            };
+                basket = new Basket();
+            }
+            else
+            {
+                basket = JsonSerializer.Deserialize<Basket>(basketSerialized)!;
+            }
 
-            _cartService.AddToCart(item);
 
-            // Redirect to the basket page or any other page as needed
-            return RedirectToAction("Basket");
+            var foundBasketItem = basket.BasketItems.FirstOrDefault(x => x.ProductId == foundProduct.Id);
+
+            if (foundBasketItem is null)
+            {
+                foundBasketItem = new BasketItem
+                {
+                    ProductId = foundProduct.Id,
+                    Count = 1
+                };
+
+                basket.BasketItems.Add(foundBasketItem);
+            }
+            else
+            {
+                foundBasketItem.Count++;
+            }
+
+            Response.Cookies.Append("basket", JsonSerializer.Serialize(basket));
+
+            return RedirectToAction("Index", "Basket");
         }
+
+        public IActionResult DeleteFromBasket(int? id)
+        {
+            if (id is null) return NotFound();
+
+            Request.Cookies.TryGetValue("basket", out var basketSerialized);
+
+            if (basketSerialized is null) return RedirectToAction("Index", "Home");
+
+            var basket = JsonSerializer.Deserialize<Basket>(basketSerialized)!;
+
+            var foundBasketItem = basket.BasketItems.FirstOrDefault(x => x.ProductId == id);
+
+            if (foundBasketItem is null) return NotFound();
+
+            basket.BasketItems.Remove(foundBasketItem);
+
+            Response.Cookies.Append("basket", JsonSerializer.Serialize(basket));
+
+            return RedirectToAction("Index", "Basket");
+        }
+        #endregion
+
     }
 }

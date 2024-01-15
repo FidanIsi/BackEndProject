@@ -1,0 +1,39 @@
+﻿@model List<Subscription>
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<h2>Subscription Data</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var subscription in Model)
+        {
+            <tr>
+                <td>@subscription.Id</td>
+                <td>@subscription.EmailAddress</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -20,7 +20,7 @@
             <!-- Sidebar scroll-->
             <div>
                 <div class="brand-logo d-flex align-items-center justify-content-between">
-                    <a href="./index.html" class="text-nowrap logo-img">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="text-nowrap logo-img">
                         <img src="~/img/core-img/logo.png" width="180" alt="" />
                     </a>
                     <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -69,9 +69,17 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link" asp-area="Admin" asp-controller="Checkout" asp-action="Index" aria-expanded="false">
                                 <span>
-                                    <i class="bi bi-palette"></i>
+                                    <i class="bi bi-cart-check"></i>
                                 </span>
                                 <span class="hide-menu">Checkout</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" asp-area="Admin" asp-controller="Subscription" asp-action="Index" aria-expanded="false">
+                                <span>
+                                    <i class="bi bi-people"></i>
+                                </span>
+                                <span class="hide-menu">Subscription</span>
                             </a>
                         </li>
                     </ul>

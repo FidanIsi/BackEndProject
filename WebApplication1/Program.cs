@@ -30,7 +30,6 @@ namespace WebApplication1
             }).AddEntityFrameworkStores<AppDbContext>();
 
             builder.Services.AddSingleton<FileService>();
-            builder.Services.AddScoped<ICartService, CartService>();
 
             var app = builder.Build();
 

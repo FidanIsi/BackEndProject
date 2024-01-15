@@ -18,7 +18,7 @@
                 <div class="product-meta-data">
                     <div class="line"></div>
                     <p class="product-price">$@product.Price</p>
-                    <a href="product-details.html">
+                    <a asp-controller="Shop" asp-action="ProductDetail" asp-route-id="@product.Id">
                         <h6>@product.Name</h6>
                     </a>
                 </div>
@@ -32,7 +32,7 @@
                         <i class="fa fa-star" aria-hidden="true"></i>
                     </div>
                     <div class="cart">
-                        <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/cart.png" alt=""></a>
+                        <a asp-controller="Shop" asp-action="AddToBasket" asp-route-id="@product.Id" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/cart.png" alt=""></a>
                     </div>
                 </div>
             </div>

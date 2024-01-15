@@ -23,5 +23,4 @@
                 searchResult.innerHTML = x
             })
     }
-
 });
